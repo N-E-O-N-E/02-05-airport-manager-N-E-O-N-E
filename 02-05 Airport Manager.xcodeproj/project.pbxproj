@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CEA7E28D2C4E2C9B0079970B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7E28C2C4E2C9B0079970B /* main.swift */; };
+		FA74955E2C4E747200514167 /* Flugzeug.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA74955D2C4E747200514167 /* Flugzeug.swift */; };
+		FA7495602C4E93EF00514167 /* Passagier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA74955F2C4E93EF00514167 /* Passagier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,8 @@
 /* Begin PBXFileReference section */
 		CEA7E2892C4E2C9B0079970B /* 02-05 Airport Manager */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "02-05 Airport Manager"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA7E28C2C4E2C9B0079970B /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		FA74955D2C4E747200514167 /* Flugzeug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flugzeug.swift; sourceTree = "<group>"; };
+		FA74955F2C4E93EF00514167 /* Passagier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passagier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 			isa = PBXGroup;
 			children = (
 				CEA7E28C2C4E2C9B0079970B /* main.swift */,
+				FA74955D2C4E747200514167 /* Flugzeug.swift */,
+				FA74955F2C4E93EF00514167 /* Passagier.swift */,
 			);
 			path = "02-05 Airport Manager";
 			sourceTree = "<group>";
@@ -120,6 +126,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA74955E2C4E747200514167 /* Flugzeug.swift in Sources */,
+				FA7495602C4E93EF00514167 /* Passagier.swift in Sources */,
 				CEA7E28D2C4E2C9B0079970B /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
