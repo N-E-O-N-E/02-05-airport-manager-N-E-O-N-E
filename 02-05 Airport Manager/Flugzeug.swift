@@ -22,6 +22,7 @@ class Flugzeug {
     
     func passagierAnzahl() {
         print("""
+            ███ █ █ █████████████████████████ █ ███████
         >>> ✈️ Flugzeug: \(flugzeugModell.capitalized)
             👨 Passagiere: \(flugzeugPassagiere)
             🟢 Boarding completed

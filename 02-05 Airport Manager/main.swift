@@ -61,14 +61,10 @@ for flugzeuge in frankfurt {
 // Im StructStruct - Weil die Eigenschaft im Struct nicht verändert wurde - werttyp
 // In der Class - Weil eine Änderung des Objektes für alle Objekte gültig ist 1:n - referenztyp
 
-
 // 1.5. Aufgabe Weiterführend ----------------------------------------------------------------
 
 var passagier1 = Passagier(passagiername: "Max", flugzeug: flugzeug1)
-
-passagier1.printBoardingpass()
+passagier1.printBoardingpass() // Print ohne Gate "-"
 
 flugzeug1.flugzeugGate = frankfurtGates[2]
-                                                                                            
-passagier1.printBoardingpass()
-
+passagier1.printBoardingpass() // Print mit Gate über Flugzeug
