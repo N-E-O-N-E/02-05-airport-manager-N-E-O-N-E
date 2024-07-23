@@ -13,7 +13,6 @@ struct Passagier {
     
     let passagiername: String
     var flugzeug: Flugzeug
-    var gate: String? = nil
     
     init(passagiername: String, flugzeug: Flugzeug) {
         self.passagiername = passagiername
@@ -34,7 +33,7 @@ struct Passagier {
     
             Fluggast:   \(passagiername)
             Modell:     \(flugzeug.flugzeugModell)
-            Gate:       \(flugzeug.flugzeugGate ?? "warte auf Gate...")
+            Gate:       \(flugzeug.flugzeugGate ?? "waiting...")
     
     """)
         

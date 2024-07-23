@@ -12,17 +12,17 @@ var frankfurtGates: [String] = ["Gate 1","Gate 2","Gate 3","Gate 4","Gate 5"]
 
 // Aufgabe 1.2 --------------------------------------------------------------------------
 
-var flugzeug1 = Flugzeug.init(flugzeugModell: "A320")
-var flugzeug2 = Flugzeug.init(flugzeugModell: "B747")
-var flugzeug3 = Flugzeug.init(flugzeugModell: "A321")
+var flugzeugPropeller1 = Propellerflugzeug(rotorBlaetter: 5, modell: "PC-12 NG")
+var flugzeugJet1 = Jet(mach: 3529, modell: "Lockheed SR-71 Blackbird")
+var flugzeugPassagierflugzeug1 = Passagierflugzeug(turbinen: 2, modell: "Airbus A320-200")
 
 // Aufgabe 1.3 ------------------------------------------------------------------------
 
-var frankfurt: Array<Flugzeug> = [flugzeug1, flugzeug2, flugzeug3]
+var frankfurt: Array<Flugzeug> = [flugzeugPropeller1, flugzeugJet1, flugzeugPassagierflugzeug1]
 
 
 for flugzeuge in frankfurt {
-    flugzeuge.passagierAnzahl()
+    flugzeuge.beschreibung()
 }
 
 // Aufgabe 1.4. ------------------------------------------------------------------------
@@ -41,13 +41,13 @@ print("""
 
 """)
 
-flugzeug1.flugzeugPassagiere = 550
-flugzeug2.flugzeugPassagiere = 300
-flugzeug3.flugzeugPassagiere = 200
+flugzeugPropeller1.flugzeugPassagiere = 15
+flugzeugJet1.flugzeugPassagiere = 2
+flugzeugPassagierflugzeug1.flugzeugPassagiere = 170
 
-flugzeug1.passagierAnzahl()
-flugzeug2.passagierAnzahl()
-flugzeug3.passagierAnzahl()
+flugzeugPropeller1.beschreibung()
+flugzeugJet1.beschreibung()
+flugzeugPassagierflugzeug1.beschreibung()
 
 print("""
     Ausdruck der Passagieranzahl über Methode
@@ -56,15 +56,26 @@ print("""
 """)
 
 for flugzeuge in frankfurt {
-    flugzeuge.passagierAnzahl()
+    flugzeuge.beschreibung()
 }
 // Im StructStruct - Weil die Eigenschaft im Struct nicht verändert wurde - werttyp
 // In der Class - Weil eine Änderung des Objektes für alle Objekte gültig ist 1:n - referenztyp
 
 // 1.5. Aufgabe Weiterführend ----------------------------------------------------------------
 
-var passagier1 = Passagier(passagiername: "Max", flugzeug: flugzeug1)
+var passagier1 = Passagier(passagiername: "Max", flugzeug: flugzeugPropeller1)
 passagier1.printBoardingpass() // Print ohne Gate "-"
 
-flugzeug1.flugzeugGate = frankfurtGates[2]
+flugzeugPropeller1.flugzeugGate = frankfurtGates[2]
 passagier1.printBoardingpass() // Print mit Gate über Flugzeug
+
+
+
+
+var kunstflugzeugExtra300_1 = KunstfliegerExtra300(rotorBlaetter: 4, modell: "Extra 300")
+var senkrechtstarterJak38_1 = SenkrechtstarterJak38(mach: 0.97, modell: "JAL-38")
+var passagierlugzeugA320neo_1 = AirbusA320neo(turbinen: 2, modell: "A320neo")
+
+kunstflugzeugExtra300_1.beschreibung()
+senkrechtstarterJak38_1.beschreibung()
+passagierlugzeugA320neo_1.beschreibung()
