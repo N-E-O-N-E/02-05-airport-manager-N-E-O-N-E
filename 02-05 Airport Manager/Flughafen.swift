@@ -25,6 +25,7 @@ class Flughafen {
     }
     
     func flughafenBeschreibung() {
+        print("---------------------------------")
         print("Flughafenname: \(flughafenName)")
         
         for elemente in flugzeuge {
@@ -40,20 +41,20 @@ class Flughafen {
         
     }
     
-    
 } // endOfFunc Flughafen
 
 class InternationalerFlughafen: Flughafen {
-    let laenderZiele: String
+    let laenderZiele: [String]
     
-    init(laenderZiele: String, flughafenName: String, flugzeuge: [Flugzeug] ) {
+    init(laenderZiele: [String], flughafenName: String, flugzeuge: [Flugzeug] ) {
         self.laenderZiele = laenderZiele
         super.init(flughafenName: flughafenName, flugzeuge: flugzeuge)
     }
     
     func internationalerFlughafenBeschreibung() {
+        print("---------------------------------")
         print("Flughafenname: \(flughafenName)")
-        print("Länderziele: \(laenderZiele)\n")
+        print("Länderziele: \(laenderZiele)")
         
         for elemente in flugzeuge {
             print("Tower meldet: \(elemente.flugzeugModell)")
@@ -71,16 +72,17 @@ class InternationalerFlughafen: Flughafen {
 } // endOfFunc
 
 class InlandsFlughafen: Flughafen {
-    let staedteZiele: String
+    let staedteZiele: [String]
     
-    init(staedteZiele: String, flughafenName: String, flugzeuge: [Flugzeug] ) {
+    init(staedteZiele: [String], flughafenName: String, flugzeuge: [Flugzeug] ) {
         self.staedteZiele = staedteZiele
         super.init(flughafenName: flughafenName, flugzeuge: flugzeuge)
     }
     
     func inlandsFlughafenBeschreibung() {
+        print("---------------------------------")
         print("Flughafenname: \(flughafenName)")
-        print("Städte Ziele: \(staedteZiele)\n")
+        print("Städte Ziele: \(staedteZiele)")
         
         for elemente in flugzeuge {
             print("Tower meldet: \(elemente.flugzeugModell)")
@@ -99,9 +101,9 @@ class InlandsFlughafen: Flughafen {
 
 class PrivatFlughafen: InlandsFlughafen {
     
-    let verein: String
+    let verein: [String]
     
-    init(verein: String, staedteZiele: String, flughafenName: String, flugzeuge: [Flugzeug]) {
+    init(verein: [String], staedteZiele: [String], flughafenName: String, flugzeuge: [Flugzeug]) {
         self.verein = verein
         super.init(staedteZiele: staedteZiele, flughafenName: flughafenName, flugzeuge: flugzeuge)
     }

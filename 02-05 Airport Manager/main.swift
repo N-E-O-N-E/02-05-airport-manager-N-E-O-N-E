@@ -31,9 +31,18 @@ print("""
 
 print("""
 
-    #################################
-      ✈️ ✈️  BOARDING START  ✈️ ✈️
-    #################################
+        
+     █████  ██ ██████  ██████   ██████  ██████  ████████
+    ██   ██ ██ ██   ██ ██   ██ ██    ██ ██   ██    ██
+    ███████ ██ ██████  ██████  ██    ██ ██████     ██
+    ██   ██ ██ ██   ██ ██      ██    ██ ██   ██    ██
+    ██   ██ ██ ██   ██ ██       ██████  ██   ██    ██
+                                                         
+                                                         
+
+    ####################################################
+              ✈️ ✈️  BOARDING START  ✈️ ✈️
+    ####################################################
 
 """)
 
@@ -93,7 +102,9 @@ print("""
 #####  Aufgabe 2.4  ####################################################################\n
 """)
 
-var frankfurtAirport = InternationalerFlughafen(laenderZiele: "Toronto", flughafenName: "Frankfurt EDDF", flugzeuge: [kunstflugzeugExtra300_1, senkrechtstarterJak38_1, passagierlugzeugA320neo_1])
+var frankfurtAirport = InternationalerFlughafen(laenderZiele: ["Toronto"], flughafenName: "Frankfurt EDDF", flugzeuge: [senkrechtstarterJak38_1, passagierlugzeugA320neo_1])
+
+var pirmasensAirport = InlandsFlughafen(staedteZiele: ["Dortmund"], flughafenName: "Pirmasens EDRP", flugzeuge: [kunstflugzeugExtra300_1])
 
 frankfurtAirport.internationalerFlughafenBeschreibung()
-
+pirmasensAirport.inlandsFlughafenBeschreibung()
