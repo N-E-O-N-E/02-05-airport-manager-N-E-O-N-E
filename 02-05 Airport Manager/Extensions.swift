@@ -19,13 +19,14 @@ extension Flugzeug {
     }
 }
 
+
+// Aufgabe 3.5 ----------------------------------------------------
+
+
 extension String {
     
     func tab() -> String {
-        
-        let leerzeichen = "   " + self
-        
-        return leerzeichen
+        return "   " + self
     }
     
 }

@@ -18,6 +18,22 @@ class Flugzeug {
     var passengersMax: UInt
     var crewAnzahl: UInt
     
+    // Aufgabe 3.5 -----------------------------------------------------------------------
+    
+    /*
+    var economy: UInt
+    var business: UInt
+    var firstClass: UInt
+    
+    var sitzklassen: (UInt, UInt, UInt) {
+        get {
+            
+            return (0, 0, 0)
+        }
+    }
+     */
+    
+    
 
     // Aufgabe 3.3 Personen an Board -----------------------------------------------------
     

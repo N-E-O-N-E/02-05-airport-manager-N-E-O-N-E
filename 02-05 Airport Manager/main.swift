@@ -161,3 +161,11 @@ passagierflugzeugA320neo.abflugbereit()
 kunstflugzeugExtra300.abflugbereit()
 cessna172.crewAndGuests += 1
 cessna172.abflugbereit()
+
+
+print("""
+
+#####  Aufgabe 3.5  ####################################################################\n
+""")
+
+
