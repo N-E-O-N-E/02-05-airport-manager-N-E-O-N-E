@@ -11,9 +11,9 @@ print("""
 #####  Aufgabe 1.2  ####################################################################\n
 """)
 
-var flugzeugPropeller1 = Propellerflugzeug(rotorBlaetter: 5, modell: "PC-12 NG", flugzeugPassagiere: 4, passengersMax: 10)
-var flugzeugJet1 = Jet(mach: 3529, modell: "Lockheed SR-71 Blackbird", flugzeugPassagiere: 1, passengersMax: 2)
-var flugzeugPassagierflugzeug1 = Passagierflugzeug(turbinen: 2, modell: "Airbus A320-200", flugzeugPassagiere: 155, passengersMax: 165)
+var flugzeugPropeller1 = Propellerflugzeug(rotorBlaetter: 5, modell: "PC-12 NG", flugzeugPassagiere: 4, passengersMax: 10, crewAnzahl: 1)
+var flugzeugJet1 = Jet(mach: 3529, modell: "Lockheed SR-71 Blackbird", flugzeugPassagiere: 1, passengersMax: 2, crewAnzahl: 0)
+var flugzeugPassagierflugzeug1 = Passagierflugzeug(turbinen: 2, modell: "Airbus A320-200", flugzeugPassagiere: 155, passengersMax: 165, crewAnzahl: 10)
 
 // Aufgabe 1.3 ------------------------------------------------------------------------
 
@@ -86,12 +86,13 @@ print("""
 #####  Aufgabe 2.3  ####################################################################\n
 """)
 
-var kunstflugzeugExtra300 = KunstfliegerExtra300(speedMax: 407, speedMin: 118, kW: 224, rotorBlaetter: 4, modell: "Extra 300 SE", flugzeugPassagiere: 2, passengersMax: 2)
-var cessna172 = Cessna172(speedMax: 380, speedMin: 125, kW: 260, rotorBlaetter: 2, modell: "Cessna 172 Skyhawk", flugzeugPassagiere: 2, passengersMax: 6)
-var senkrechtstarterJak38 = SenkrechtstarterJak38(speedMax: 1150, spannweite: 7000, laenge: 16.37, mach: 0.95, modell: "Jet JAK-38", flugzeugPassagiere: 2, passengersMax: 2)
-var passagierflugzeugA320neo = AirbusA320neo(laenge: 37.57, spannweite: 35.8, hoehe: 11.76, turbinen: 2, modell: "A320neo", flugzeugPassagiere: 176, passengersMax: 189)
+var kunstflugzeugExtra300 = KunstfliegerExtra300(speedMax: 407, speedMin: 118, kW: 224, rotorBlaetter: 4, modell: "Extra 300 SE", flugzeugPassagiere: 2, passengersMax: 2, crewAnzahl: 0)
+var cessna172 = Cessna172(speedMax: 380, speedMin: 125, kW: 260, rotorBlaetter: 2, modell: "Cessna 172 Skyhawk", flugzeugPassagiere: 3, passengersMax: 6, crewAnzahl: 2)
+var senkrechtstarterJak38 = SenkrechtstarterJak38(speedMax: 1150, spannweite: 7000, laenge: 16.37, mach: 0.95, modell: "Jet JAK-38", flugzeugPassagiere: 2, passengersMax: 2, crewAnzahl: 0)
+var passagierflugzeugA320neo = AirbusA320neo(laenge: 37.57, spannweite: 35.8, hoehe: 11.76, turbinen: 2, modell: "A320neo", flugzeugPassagiere: 176, passengersMax: 189, crewAnzahl: 9)
 
 kunstflugzeugExtra300.beschreibung()
+cessna172.beschreibung()
 senkrechtstarterJak38.beschreibung()
 passagierflugzeugA320neo.beschreibung()
 
@@ -121,7 +122,8 @@ frankfurtAirport.flugzeugLandet(flugzeug: cessna172)
 frankfurtAirport.internationalerFlughafenBeschreibung()
 
 // Neuer Flieger startet in Frankfurt
-frankfurtAirport.flugzeugStartet(flugzeug: kunstflugzeugExtra300)
+cessna172.abflugbereit()
+frankfurtAirport.flugzeugStartet(flugzeug: cessna172)
 frankfurtAirport.internationalerFlughafenBeschreibung()
 
 // Neuer Flieger landet in Pirmasens
@@ -149,3 +151,13 @@ pirmasensAirport.stadtHinzufuegen(stadt: "Hannover")
 pirmasensAirport.inlandsFlughafenBeschreibung()
 pirmasensAirport.stadtEntfernen(stadt: "Hannover")
 pirmasensAirport.inlandsFlughafenBeschreibung()
+
+print("""
+
+#####  Aufgabe 3.3  ####################################################################\n
+""")
+
+passagierflugzeugA320neo.abflugbereit()
+kunstflugzeugExtra300.abflugbereit()
+cessna172.crewAndGuests += 1
+cessna172.abflugbereit()
