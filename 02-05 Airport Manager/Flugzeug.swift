@@ -100,12 +100,15 @@ class Passagierflugzeug: Flugzeug {
 
 // Aufgabe 2.3 ---------Weiterführend----------------------------------------------------------
 
-class KunstfliegerExtra300: Propellerflugzeug {
-    let speedMax: UInt = 407
-    let speedMin: UInt = 118
-    let kW: UInt = 224
+final class KunstfliegerExtra300: Propellerflugzeug {
+    let speedMax: UInt
+    let speedMin: UInt
+    let kW: UInt
     
-    override init(rotorBlaetter: UInt, modell: String) {
+    init(speedMax: UInt, speedMin: UInt, kW: UInt, rotorBlaetter: UInt, modell: String) {
+        self.speedMax = speedMax
+        self.speedMin = speedMin
+        self.kW = kW
         super.init(rotorBlaetter: rotorBlaetter, modell: modell)
     }
     
@@ -123,13 +126,44 @@ class KunstfliegerExtra300: Propellerflugzeug {
     
 }
 
-class SenkrechtstarterJak38: Jet {
+final class Cessna172: Propellerflugzeug {
+    let speedMax: UInt
+    let speedMin: UInt
+    let kW: UInt
     
-    let speedMax: UInt = 1150
-    let spanweite: UInt = 7000
-    let laenge: Double = 16.37
+    init(speedMax: UInt, speedMin: UInt, kW: UInt, rotorBlaetter: UInt, modell: String) {
+        self.speedMax = speedMax
+        self.speedMin = speedMin
+        self.kW = kW
+        super.init(rotorBlaetter: rotorBlaetter, modell: modell)
+    }
     
-    override init(mach: Double, modell: String) {
+    override func beschreibung() {
+        super.beschreibung()
+        
+        print("Reiseflugzeug Cessna 172")
+        
+        print("""
+            🟦 Speed  MAX             = \(speedMax)
+            🟦 Speed  MIN             = \(speedMin)
+            🟦 Engine KW              = \(kW)
+
+        """)
+    }
+    
+    
+}
+
+final class SenkrechtstarterJak38: Jet {
+    
+    let speedMax: UInt
+    let spanweite: UInt
+    let laenge: Double
+    
+    init(speedMax: UInt, spannweite: UInt, laenge: Double, mach: Double, modell: String) {
+        self.speedMax = speedMax
+        self.spanweite = spannweite
+        self.laenge = laenge
         super.init(mach: mach, modell: modell)
     }
     

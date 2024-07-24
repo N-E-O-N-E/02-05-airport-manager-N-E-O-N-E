@@ -86,8 +86,9 @@ print("""
 #####  Aufgabe 2.3  ####################################################################\n
 """)
 
-var kunstflugzeugExtra300 = KunstfliegerExtra300(rotorBlaetter: 4, modell: "Extra 300")
-var senkrechtstarterJak38 = SenkrechtstarterJak38(mach: 0.97, modell: "JAL-38")
+var kunstflugzeugExtra300 = KunstfliegerExtra300(speedMax: 407, speedMin: 118, kW: 224, rotorBlaetter: 4, modell: "Extra 300 SE")
+var cessna172 = Cessna172(speedMax: 380, speedMin: 125, kW: 260, rotorBlaetter: 2, modell: "Cessna 172 Skyhawk")
+var senkrechtstarterJak38 = SenkrechtstarterJak38(speedMax: 1150, spannweite: 7000, laenge: 16.37, mach: 0.95, modell: "Jet JAK-38")
 var passagierflugzeugA320neo = AirbusA320neo(laenge: 37.57, spannweite: 35.8, hoehe: 11.76, passagiereMax: 189, turbinen: 2, modell: "A320neo")
 
 kunstflugzeugExtra300.beschreibung()
@@ -100,22 +101,51 @@ print("""
 #####  Aufgabe 2.4  ####################################################################\n
 """)
 
-var frankfurtAirport = InternationalerFlughafen(laenderZiele: ["Toronto", "Dubai"], flughafenName: "Frankfurt EDDF", flugzeuge: [senkrechtstarterJak38, passagierflugzeugA320neo, kunstflugzeugExtra300])
+var frankfurtAirport = InternationalerFlughafen(laenderZiele: ["Toronto", "Dubai"], flughafenName: "Frankfurt EDDF", flugzeuge: [senkrechtstarterJak38, passagierflugzeugA320neo])
 
-var pirmasensAirport = InlandsFlughafen(staedteZiele: ["Dortmund", "Saarbrücken", "Ramstein"], flughafenName: "Pirmasens EDRP", flugzeuge: [kunstflugzeugExtra300, kunstflugzeugExtra300])
+var pirmasensAirport = InlandsFlughafen(staedteZiele: ["Dortmund", "Saarbrücken", "Ramstein"], flughafenName: "Pirmasens EDRP", flugzeuge: [kunstflugzeugExtra300])
 
 var privateField = PrivatFlughafen(verein: ["Verein 1", "Verein 2"], staedteZiele: ["Saarbrücken","Zweibrücken", "Ramstein"], flughafenName: "PilotField", flugzeuge: [kunstflugzeugExtra300, kunstflugzeugExtra300])
 
 frankfurtAirport.internationalerFlughafenBeschreibung()
 pirmasensAirport.inlandsFlughafenBeschreibung()
 
+print("""
+
+----- Flughafenbewegungen -------------------------------
+
+""")
 // Neuer Flieger landet in Frankfurt
-print("\\nNeue Flieger landet in Frankfurt")
 frankfurtAirport.flugzeugLandet(flugzeug: kunstflugzeugExtra300)
+frankfurtAirport.flugzeugLandet(flugzeug: cessna172)
 frankfurtAirport.internationalerFlughafenBeschreibung()
 
 // Neuer Flieger startet in Frankfurt
-print("\nFlieger \(frankfurtAirport.flugzeuge.last!.flugzeugModell) startet in Frankfurt")
 frankfurtAirport.flugzeugStartet(flugzeug: kunstflugzeugExtra300)
 frankfurtAirport.internationalerFlughafenBeschreibung()
 
+// Neuer Flieger landet in Pirmasens
+pirmasensAirport.flugzeugLandet(flugzeug: cessna172)
+
+print("""
+
+----- Länderbewegung -------------------------------
+
+""")
+
+frankfurtAirport.landHinzufuegen(land: "Frankreich")
+frankfurtAirport.internationalerFlughafenBeschreibung()
+frankfurtAirport.landEntfernen(land: "Frankreich")
+frankfurtAirport.internationalerFlughafenBeschreibung()
+
+
+print("""
+
+----- Städtebewegungen -------------------------------
+
+""")
+
+pirmasensAirport.stadtHinzufuegen(stadt: "Hannover")
+pirmasensAirport.inlandsFlughafenBeschreibung()
+pirmasensAirport.stadtEntfernen(stadt: "Hannover")
+pirmasensAirport.inlandsFlughafenBeschreibung()

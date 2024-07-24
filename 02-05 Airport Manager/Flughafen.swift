@@ -26,33 +26,31 @@ class Flughafen {
     
     func flughafenBeschreibung() {
        
-        print("Flughafenname: \(flughafenName)")
+        print("Flughafenname: \(flughafenName)\n")
         
         for elemente in flugzeuge {
-            print("Tower sichtet: \(elemente.flugzeugModell)")
+            print("Auf Rollfeld: \(elemente.flugzeugModell)\n")
         }
     }
     
     func flugzeugLandet(flugzeug: Flugzeug) {
         flugzeuge.append(flugzeug)
+        print("Das Flugzeug (\(flugzeug.flugzeugModell)) ist in \(flughafenName) gelandet!")
     }
     
     func flugzeugStartet(flugzeug: Flugzeug) {
-        
         for (index, flieger) in flugzeuge.enumerated() {
             if flieger === flugzeug {
-
                 flugzeuge.remove(at: index)
+                print("Das Flugzeug (\(flieger.flugzeugModell)) ist in \(flughafenName) gestartet!")
+            }
         }
-        
-        
-       
     }
     
 } // endOfFunc Flughafen
 
 class InternationalerFlughafen: Flughafen {
-    let laenderZiele: [String]
+    var laenderZiele: [String]
     
     init(laenderZiele: [String], flughafenName: String, flugzeuge: [Flugzeug] ) {
         self.laenderZiele = laenderZiele
@@ -70,17 +68,23 @@ class InternationalerFlughafen: Flughafen {
     }
     
     func landHinzufuegen(land: String) {
-        
+        laenderZiele.append(land)
+        print("Das Land (\(land)) wurde der Länderliste hinzugefügt!")
     }
     
     func landEntfernen(land: String) {
-        
+        for (index, laender) in laenderZiele.enumerated() {
+            if laender == land {
+                laenderZiele.remove(at: index)
+                print("Das Land (\(land)) wurde aus der Länderliste entfernt!")
+            }
+        }
     }
     
 } // endOfFunc
 
 class InlandsFlughafen: Flughafen {
-    let staedteZiele: [String]
+    var staedteZiele: [String]
     
     init(staedteZiele: [String], flughafenName: String, flugzeuge: [Flugzeug] ) {
         self.staedteZiele = staedteZiele
@@ -98,11 +102,17 @@ class InlandsFlughafen: Flughafen {
     }
     
     func stadtHinzufuegen(stadt: String) {
-        
+        staedteZiele.append(stadt)
+        print("Die Stadt (\(stadt)) wurde der Städteliste hinzugefügt!")
     }
     
     func stadtEntfernen(stadt: String) {
-        
+        for (index, staedte) in staedteZiele.enumerated() {
+            if staedte == stadt {
+                staedteZiele.remove(at: index)
+                print("Die Stadt (\(stadt)) wurde aus der Städteliste entfernt!")
+            }
+        }
     }
     
 } // endOfFunc
