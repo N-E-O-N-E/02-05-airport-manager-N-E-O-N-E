@@ -38,7 +38,15 @@ class Flughafen {
     }
     
     func flugzeugStartet(flugzeug: Flugzeug) {
-        flugzeuge.removeLast()
+        
+        for (index, flieger) in flugzeuge.enumerated() {
+            if flieger === flugzeug {
+
+                flugzeuge.remove(at: index)
+        }
+        
+        
+       
     }
     
 } // endOfFunc Flughafen
