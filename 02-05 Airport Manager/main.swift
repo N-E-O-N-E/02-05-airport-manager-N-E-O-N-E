@@ -88,13 +88,13 @@ print("""
 #####  Aufgabe 2.3  ####################################################################\n
 """)
 
-var kunstflugzeugExtra300_1 = KunstfliegerExtra300(rotorBlaetter: 4, modell: "Extra 300")
-var senkrechtstarterJak38_1 = SenkrechtstarterJak38(mach: 0.97, modell: "JAL-38")
-var passagierlugzeugA320neo_1 = AirbusA320neo(turbinen: 2, modell: "A320neo")
+var kunstflugzeugExtra300 = KunstfliegerExtra300(rotorBlaetter: 4, modell: "Extra 300")
+var senkrechtstarterJak38 = SenkrechtstarterJak38(mach: 0.97, modell: "JAL-38")
+var passagierflugzeugA320neo = AirbusA320neo(laenge: 37.57, spannweite: 35.8, hoehe: 11.76, passagiereMax: 189, turbinen: 2, modell: "A320neo")
 
-kunstflugzeugExtra300_1.beschreibung()
-senkrechtstarterJak38_1.beschreibung()
-passagierlugzeugA320neo_1.beschreibung()
+kunstflugzeugExtra300.beschreibung()
+senkrechtstarterJak38.beschreibung()
+passagierflugzeugA320neo.beschreibung()
 
 // Aufgabe 2.4 -------------------------------------------------------------------------------
 
@@ -102,9 +102,22 @@ print("""
 #####  Aufgabe 2.4  ####################################################################\n
 """)
 
-var frankfurtAirport = InternationalerFlughafen(laenderZiele: ["Toronto"], flughafenName: "Frankfurt EDDF", flugzeuge: [senkrechtstarterJak38_1, passagierlugzeugA320neo_1])
+var frankfurtAirport = InternationalerFlughafen(laenderZiele: ["Toronto", "Dubai"], flughafenName: "Frankfurt EDDF", flugzeuge: [senkrechtstarterJak38, passagierflugzeugA320neo, kunstflugzeugExtra300])
 
-var pirmasensAirport = InlandsFlughafen(staedteZiele: ["Dortmund"], flughafenName: "Pirmasens EDRP", flugzeuge: [kunstflugzeugExtra300_1])
+var pirmasensAirport = InlandsFlughafen(staedteZiele: ["Dortmund", "Saarbrücken", "Ramstein"], flughafenName: "Pirmasens EDRP", flugzeuge: [kunstflugzeugExtra300, kunstflugzeugExtra300])
+
+var privateField = PrivatFlughafen(verein: ["Verein 1", "Verein 2"], staedteZiele: ["Saarbrücken","Zweibrücken", "Ramstein"], flughafenName: "PilotField", flugzeuge: [kunstflugzeugExtra300, kunstflugzeugExtra300])
 
 frankfurtAirport.internationalerFlughafenBeschreibung()
 pirmasensAirport.inlandsFlughafenBeschreibung()
+
+// Neuer Flieger landet in Frankfurt
+print("\\nNeue Flieger landet in Frankfurt")
+frankfurtAirport.flugzeugLandet(flugzeug: kunstflugzeugExtra300)
+frankfurtAirport.internationalerFlughafenBeschreibung()
+
+// Neuer Flieger startet in Frankfurt
+print("\nFlieger \(frankfurtAirport.flugzeuge.last!.flugzeugModell) startet in Frankfurt")
+frankfurtAirport.flugzeugStartet(flugzeug: kunstflugzeugExtra300)
+frankfurtAirport.internationalerFlughafenBeschreibung()
+

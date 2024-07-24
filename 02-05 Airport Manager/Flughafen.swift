@@ -25,20 +25,20 @@ class Flughafen {
     }
     
     func flughafenBeschreibung() {
-        print("---------------------------------")
+       
         print("Flughafenname: \(flughafenName)")
         
         for elemente in flugzeuge {
-            print("Tower meldet: \(elemente.flugzeugModell)")
+            print("Tower sichtet: \(elemente.flugzeugModell)")
         }
     }
     
     func flugzeugLandet(flugzeug: Flugzeug) {
-        
+        flugzeuge.append(flugzeug)
     }
     
     func flugzeugStartet(flugzeug: Flugzeug) {
-        
+        flugzeuge.removeLast()
     }
     
 } // endOfFunc Flughafen
@@ -53,11 +53,11 @@ class InternationalerFlughafen: Flughafen {
     
     func internationalerFlughafenBeschreibung() {
         print("---------------------------------")
-        print("Flughafenname: \(flughafenName)")
-        print("Länderziele: \(laenderZiele)")
+        super.flughafenBeschreibung()
+        print("Int. Länderziele: ")
         
-        for elemente in flugzeuge {
-            print("Tower meldet: \(elemente.flugzeugModell)")
+        for elemente in laenderZiele {
+            print("-\(elemente)")
         }
     }
     
@@ -81,11 +81,11 @@ class InlandsFlughafen: Flughafen {
     
     func inlandsFlughafenBeschreibung() {
         print("---------------------------------")
-        print("Flughafenname: \(flughafenName)")
-        print("Städte Ziele: \(staedteZiele)")
+        super.flughafenBeschreibung()
+        print("Städteziele:")
         
-        for elemente in flugzeuge {
-            print("Tower meldet: \(elemente.flugzeugModell)")
+        for elemente in staedteZiele {
+            print("-\(elemente)")
         }
     }
     
@@ -106,6 +106,16 @@ class PrivatFlughafen: InlandsFlughafen {
     init(verein: [String], staedteZiele: [String], flughafenName: String, flugzeuge: [Flugzeug]) {
         self.verein = verein
         super.init(staedteZiele: staedteZiele, flughafenName: flughafenName, flugzeuge: flugzeuge)
+    }
+    
+    func privatFlughafenBeschreibung() {
+        print("---------------------------------")
+        super.flughafenBeschreibung()
+        print("Vereine:")
+        
+        for elemente in verein {
+            print("-\(elemente)")
+        }
     }
     
 } // endOfFunc

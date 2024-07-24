@@ -148,12 +148,16 @@ class SenkrechtstarterJak38: Jet {
 
 final class AirbusA320neo: Passagierflugzeug {
     
-    let laenge: Double = 37.57
-    let spannweite: Double = 35.8
-    let hoehe: Double = 11.76
-    let passagiereMax: UInt = 189
+    let laenge: Double
+    let spannweite: Double
+    let hoehe: Double
+    let passagiereMax: UInt
     
-    override init(turbinen: UInt, modell: String) {
+    init(laenge: Double, spannweite: Double, hoehe: Double, passagiereMax: UInt, turbinen: UInt, modell: String) {
+        self.laenge = laenge
+        self.spannweite = spannweite
+        self.hoehe = hoehe
+        self.passagiereMax = passagiereMax
         super.init(turbinen: turbinen, modell: modell)
     }
     
