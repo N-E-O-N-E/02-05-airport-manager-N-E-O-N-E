@@ -11,9 +11,9 @@ print("""
 #####  Aufgabe 1.2  ####################################################################\n
 """)
 
-var flugzeugPropeller1 = Propellerflugzeug(rotorBlaetter: 5, modell: "PC-12 NG")
-var flugzeugJet1 = Jet(mach: 3529, modell: "Lockheed SR-71 Blackbird")
-var flugzeugPassagierflugzeug1 = Passagierflugzeug(turbinen: 2, modell: "Airbus A320-200")
+var flugzeugPropeller1 = Propellerflugzeug(rotorBlaetter: 5, modell: "PC-12 NG", flugzeugPassagiere: 4, passengersMax: 10)
+var flugzeugJet1 = Jet(mach: 3529, modell: "Lockheed SR-71 Blackbird", flugzeugPassagiere: 1, passengersMax: 2)
+var flugzeugPassagierflugzeug1 = Passagierflugzeug(turbinen: 2, modell: "Airbus A320-200", flugzeugPassagiere: 155, passengersMax: 165)
 
 // Aufgabe 1.3 ------------------------------------------------------------------------
 
@@ -86,10 +86,10 @@ print("""
 #####  Aufgabe 2.3  ####################################################################\n
 """)
 
-var kunstflugzeugExtra300 = KunstfliegerExtra300(speedMax: 407, speedMin: 118, kW: 224, rotorBlaetter: 4, modell: "Extra 300 SE")
-var cessna172 = Cessna172(speedMax: 380, speedMin: 125, kW: 260, rotorBlaetter: 2, modell: "Cessna 172 Skyhawk")
-var senkrechtstarterJak38 = SenkrechtstarterJak38(speedMax: 1150, spannweite: 7000, laenge: 16.37, mach: 0.95, modell: "Jet JAK-38")
-var passagierflugzeugA320neo = AirbusA320neo(laenge: 37.57, spannweite: 35.8, hoehe: 11.76, passagiereMax: 189, turbinen: 2, modell: "A320neo")
+var kunstflugzeugExtra300 = KunstfliegerExtra300(speedMax: 407, speedMin: 118, kW: 224, rotorBlaetter: 4, modell: "Extra 300 SE", flugzeugPassagiere: 2, passengersMax: 2)
+var cessna172 = Cessna172(speedMax: 380, speedMin: 125, kW: 260, rotorBlaetter: 2, modell: "Cessna 172 Skyhawk", flugzeugPassagiere: 2, passengersMax: 6)
+var senkrechtstarterJak38 = SenkrechtstarterJak38(speedMax: 1150, spannweite: 7000, laenge: 16.37, mach: 0.95, modell: "Jet JAK-38", flugzeugPassagiere: 2, passengersMax: 2)
+var passagierflugzeugA320neo = AirbusA320neo(laenge: 37.57, spannweite: 35.8, hoehe: 11.76, turbinen: 2, modell: "A320neo", flugzeugPassagiere: 176, passengersMax: 189)
 
 kunstflugzeugExtra300.beschreibung()
 senkrechtstarterJak38.beschreibung()

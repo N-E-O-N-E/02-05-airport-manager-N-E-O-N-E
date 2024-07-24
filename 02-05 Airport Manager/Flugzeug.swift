@@ -13,11 +13,20 @@ import Foundation
 class Flugzeug {
     
     var flugzeugModell: String
-    var flugzeugPassagiere: UInt = 0
+    var flugzeugPassagiere: UInt
     var flugzeugGate: String? = nil
+    var passengersMax: UInt
     
-    init(flugzeugModell: String) {
+    var freiePlaetze: UInt {
+        get {
+            return passengersMax - flugzeugPassagiere
+        }
+    }
+    
+    init(flugzeugModell: String, flugzeugPassagiere: UInt, passengersMax: UInt) {
         self.flugzeugModell = flugzeugModell
+        self.flugzeugPassagiere = flugzeugPassagiere
+        self.passengersMax = passengersMax
     }
     
     func beschreibung() {
@@ -40,9 +49,9 @@ class Flugzeug {
 class Propellerflugzeug: Flugzeug {
     var rotorBlaetter: UInt
     
-    init(rotorBlaetter: UInt, modell: String) {
+    init(rotorBlaetter: UInt, modell: String, flugzeugPassagiere: UInt, passengersMax: UInt) {
         self.rotorBlaetter = rotorBlaetter
-        super.init(flugzeugModell: modell)
+        super.init(flugzeugModell: modell, flugzeugPassagiere: flugzeugPassagiere, passengersMax: passengersMax)
     }
     
     override func beschreibung() {
@@ -60,9 +69,9 @@ class Propellerflugzeug: Flugzeug {
 class Jet: Flugzeug {
     let mach: Double
     
-    init(mach: Double, modell: String) {
+    init(mach: Double, modell: String, flugzeugPassagiere: UInt, passengersMax: UInt) {
         self.mach = mach
-        super.init(flugzeugModell: modell)
+        super.init(flugzeugModell: modell, flugzeugPassagiere: flugzeugPassagiere, passengersMax: passengersMax)
     }
     
     override func beschreibung() {
@@ -80,9 +89,9 @@ class Jet: Flugzeug {
 class Passagierflugzeug: Flugzeug {
     let turbinen: UInt
     
-    init(turbinen: UInt, modell: String) {
+    init(turbinen: UInt, modell: String, flugzeugPassagiere: UInt, passengersMax: UInt) {
         self.turbinen = turbinen
-        super.init(flugzeugModell: modell)
+        super.init(flugzeugModell: modell, flugzeugPassagiere: flugzeugPassagiere, passengersMax: passengersMax)
     }
     
     override func beschreibung() {
@@ -105,11 +114,11 @@ final class KunstfliegerExtra300: Propellerflugzeug {
     let speedMin: UInt
     let kW: UInt
     
-    init(speedMax: UInt, speedMin: UInt, kW: UInt, rotorBlaetter: UInt, modell: String) {
+    init(speedMax: UInt, speedMin: UInt, kW: UInt, rotorBlaetter: UInt, modell: String, flugzeugPassagiere: UInt, passengersMax: UInt) {
         self.speedMax = speedMax
         self.speedMin = speedMin
         self.kW = kW
-        super.init(rotorBlaetter: rotorBlaetter, modell: modell)
+        super.init(rotorBlaetter: rotorBlaetter, modell: modell, flugzeugPassagiere: flugzeugPassagiere, passengersMax: passengersMax)
     }
     
     override func beschreibung() {
@@ -131,11 +140,11 @@ final class Cessna172: Propellerflugzeug {
     let speedMin: UInt
     let kW: UInt
     
-    init(speedMax: UInt, speedMin: UInt, kW: UInt, rotorBlaetter: UInt, modell: String) {
+    init(speedMax: UInt, speedMin: UInt, kW: UInt, rotorBlaetter: UInt, modell: String, flugzeugPassagiere: UInt, passengersMax: UInt) {
         self.speedMax = speedMax
         self.speedMin = speedMin
         self.kW = kW
-        super.init(rotorBlaetter: rotorBlaetter, modell: modell)
+        super.init(rotorBlaetter: rotorBlaetter, modell: modell, flugzeugPassagiere: flugzeugPassagiere, passengersMax: passengersMax)
     }
     
     override func beschreibung() {
@@ -160,11 +169,11 @@ final class SenkrechtstarterJak38: Jet {
     let spanweite: UInt
     let laenge: Double
     
-    init(speedMax: UInt, spannweite: UInt, laenge: Double, mach: Double, modell: String) {
+    init(speedMax: UInt, spannweite: UInt, laenge: Double, mach: Double, modell: String, flugzeugPassagiere: UInt,passengersMax: UInt) {
         self.speedMax = speedMax
         self.spanweite = spannweite
         self.laenge = laenge
-        super.init(mach: mach, modell: modell)
+        super.init(mach: mach, modell: modell, flugzeugPassagiere: flugzeugPassagiere, passengersMax: passengersMax)
     }
     
     override func beschreibung() {
@@ -185,14 +194,13 @@ final class AirbusA320neo: Passagierflugzeug {
     let laenge: Double
     let spannweite: Double
     let hoehe: Double
-    let passagiereMax: UInt
+ 
     
-    init(laenge: Double, spannweite: Double, hoehe: Double, passagiereMax: UInt, turbinen: UInt, modell: String) {
+    init(laenge: Double, spannweite: Double, hoehe: Double, turbinen: UInt, modell: String, flugzeugPassagiere: UInt, passengersMax: UInt) {
         self.laenge = laenge
         self.spannweite = spannweite
         self.hoehe = hoehe
-        self.passagiereMax = passagiereMax
-        super.init(turbinen: turbinen, modell: modell)
+        super.init(turbinen: turbinen, modell: modell, flugzeugPassagiere: flugzeugPassagiere, passengersMax: passengersMax)
     }
     
     override func beschreibung() {
@@ -202,7 +210,6 @@ final class AirbusA320neo: Passagierflugzeug {
             🟦 Länge                  = \(laenge)
             🟦 Spannweite             = \(spannweite)
             🟦 Höhe                   = \(hoehe)
-            🟦 Passagiere Max.        = \(passagiereMax)
 
         """)
     }
