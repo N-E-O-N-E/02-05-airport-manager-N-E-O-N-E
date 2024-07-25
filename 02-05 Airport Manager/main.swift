@@ -272,31 +272,81 @@ FirstClass: \(passagierflugzeugA320neo.sitzklassen.2)
 
 """)
 
+print("""
+
+#####  Aufgabe 4.1  ###############################################################\n
+""")
+
+frankfurtAirport.flugzeuge[1].abheben()
+print(frankfurtAirport.flugzeuge[1].isFlying)
+
+pirmasensAirport.flugzeuge[0].abheben()
+print(frankfurtAirport.flugzeuge[0].isFlying)
+
+
+
+
+
 
 print("""
 
-#####  Aufgabe 4.2  ############## BONUS ##################################################\n
+#####  Aufgabe 4.2  ###############################################################\n
 """)
 
-func Passagieranreise(Transpormittel: Transportation) {
-    Transpormittel.anreise()
+var taxi1 = Taxi(passagierName: "Julia", ankunftsZeit: "10:00", taxinummer: 827, taxiname: "Taxi 827")
+var zug1 = Zug(passagierName: "Peter", ankunftsZeit: "11:00", zugnummer: 45, zugTyp: "ICE45")
+var zug2 = Zug(passagierName: "Chris", ankunftsZeit: "12:30", zugnummer: 12, zugTyp: "RE12")
+
+Passagieranreise(Transpormittel: taxi1)
+Passagieranreise(Transpormittel: zug1)
+Passagieranreise(Transpormittel: zug2)
+
+
+print("""
+
+
+
+
+
+
+
+
+
+
+
+################################################################
+    Aufgabe 4.3 - Weiterführend "Simulation"
+################################################################
+
+""")
+
+// 10 Passagiere kommen an--------------------------------------
+var namen: [String] = ["Julia V.", "Max B.", "Jürgen I.", "Harald L.", "Sven B.", "Oliver P.", "Ruth M.", "Herbert G.", "Jens H.", "Linda S.", "Patrick T.", "Pascal M.", "Matthias O.", "Uwe. D.", "Tobias S."]
+var zeiten: [String] = ["8:00", "8:15", "8:30", "9:00", "9:15", "9:30", "10:00", "10:15", "10:30", "10:45"]
+var idChar: [String] = ["T-", "RE-", "U-", "IC-", "EX-", "XP-", "PA-", "RT-", "LA-"]
+
+
+
+var anreisende: [Taxi] = []
+
+for _ in 1...10 {
+    
+    let neue: Taxi = Taxi(
+        passagierName: String(namen.randomElement()!),
+        ankunftsZeit: String(zeiten.randomElement()!),
+        taxinummer: Int.random(in: 20...90),
+        taxiname: String(idChar.randomElement()!) + String(Int.random(in: 500...9999))
+        )
+
+    Passagieranreise(Transpormittel: neue)
+    
+    anreisende.append(neue)
+
+    
 }
 
-Passagieranreise(Transpormittel: Taxi(
-    passagierName: "Julia",
-    ankunftsZeit: "10:00",
-    taxinummer: 827,
-    taxiname: "Taxi 827"))
+print(anreisende)
 
-Passagieranreise(Transpormittel: Zug(
-    passagierName: "Peter",
-    ankunftsZeit: "11:00",
-    zugnummer: 45,
-    zugTyp: "ICE"))
+// Passagire müssen als Objekt übergeben werden!!-------------------------!!!!!!!!!!!!!
 
-Passagieranreise(Transpormittel: Zug(
-    passagierName: "Chris",
-    ankunftsZeit: "12:30",
-    zugnummer: 12,
-    zugTyp: "RE"))
 

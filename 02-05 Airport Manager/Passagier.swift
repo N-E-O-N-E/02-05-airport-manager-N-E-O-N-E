@@ -37,6 +37,14 @@ struct Passagier {
     
     """)
         
-    } // EndOfFunc
     
+        
+    } // EndOfFunc
+
 } // EndOfStruct
+
+
+// Aufgabe 4.2. ----------------------------------------------------------
+func Passagieranreise(Transpormittel: Transportation) {
+    Transpormittel.anreise()
+}

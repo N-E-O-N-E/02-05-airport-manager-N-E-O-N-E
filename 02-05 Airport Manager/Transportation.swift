@@ -16,11 +16,11 @@ struct Taxi: Transportation {
     let taxiname: String
     
     func anreise() {
-        print("🚕 Anreise mit dem Taxi")
-        print("Der Passagier \(passagierName) kommt um \(ankunftsZeit) mit dem \(taxiname) an.")
+        
+        print("""
+                Der Passagier \(passagierName) kommt um \(ankunftsZeit) mit dem Taxi 🚕 Nr. \(taxiname) an.
+                """)
     }
-    
-    
 }
 
 struct Zug: Transportation {
@@ -32,10 +32,24 @@ struct Zug: Transportation {
     let zugTyp: String
     
     func anreise() {
-        print("🚃🚃🚃 Anreise mit dem Zug")
-        print("Der Passagier \(passagierName) kommt um \(ankunftsZeit) mit dem \(zugTyp) an.")
+        
+        print("""
+              Der Passagier \(passagierName) kommt um \(ankunftsZeit) mit dem Zug 🚃 Nr. \(zugTyp) an.
+              """)
     }
+}
+
+struct Uber: Transportation {
     
+    var passagierName: String
+    var ankunftsZeit: String
     
+    let ubernummer: Int
     
+    func anreise() {
+        
+        print("""
+                Der Passagier \(passagierName) kommt um \(ankunftsZeit) mit UBER-Service 🚙 an.
+                """)
+    }
 }

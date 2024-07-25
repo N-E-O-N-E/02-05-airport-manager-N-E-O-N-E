@@ -10,7 +10,17 @@ import Foundation
 // Aufgabe 1.2 --------------------------------------------------------------------------
 
 //struct Flugzeug {
-class Flugzeug {
+class Flugzeug: StartenUndLanden {
+    
+    var isFlying: Bool = false
+    
+    func abheben() {
+        isFlying = true
+    }
+    
+    func landen() {
+        isFlying = false
+    }
     
     var flugzeugModell: String
     var flugzeugPassagiere: UInt
@@ -251,18 +261,7 @@ final class SenkrechtstarterJak38: Jet {
 
 // Aufgabe 4.1 hier implementiert ------------------------------------------------------------------------
 
-final class AirbusA320neo: Passagierflugzeug, StartenUndLanden {
-    
-    var isFlying: Bool = false
-    
-    func abheben() {
-        isFlying = true
-    }
-    
-    func landen() {
-        isFlying = false
-    }
-    
+final class AirbusA320neo: Passagierflugzeug {
     
     let laenge: Double
     let spannweite: Double
