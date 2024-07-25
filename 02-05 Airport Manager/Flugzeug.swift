@@ -40,18 +40,13 @@ class Flugzeug {
                 business = newValue.1
                 firstClass = newValue.2
         
-                flugzeugPassagiere = economy + business + firstClass
+                flugzeugPassagiere = economy + business + firstClass + crewAnzahl
                 
             } else {
                 print("Passagieranzahl übersteigt maximale Kapazität von \(passengersMax) Personen".tab())
             }
         }
     }
-    
-    
-    /*
-    Beim Setzen soll ein Tupel mit drei Werten (für Economy, Business und FirstClass) übergeben werden. Die Passagieranzahl in den jeweiligen Klassen und die Gesamtzahl der Passagiere an Bord soll aktualisiert werden. Vorausgesetzt: Die maximale Anzahl wird dabei nicht überschritten
-    */
     
 
     // Aufgabe 3.3 Personen an Board -----------------------------------------------------
@@ -254,7 +249,20 @@ final class SenkrechtstarterJak38: Jet {
     
 }
 
-final class AirbusA320neo: Passagierflugzeug {
+// Aufgabe 4.1 hier implementiert ------------------------------------------------------------------------
+
+final class AirbusA320neo: Passagierflugzeug, StartenUndLanden {
+    
+    var isFlying: Bool = false
+    
+    func abheben() {
+        isFlying = true
+    }
+    
+    func landen() {
+        isFlying = false
+    }
+    
     
     let laenge: Double
     let spannweite: Double

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CEA7E28D2C4E2C9B0079970B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7E28C2C4E2C9B0079970B /* main.swift */; };
+		FA2507112C526C9800B516D2 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2507102C526C9800B516D2 /* Protocols.swift */; };
+		FA2507132C526E6500B516D2 /* Transportation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2507122C526E6500B516D2 /* Transportation.swift */; };
 		FA62EBD52C51263E00B19280 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA62EBD42C51263E00B19280 /* Extensions.swift */; };
 		FA74955E2C4E747200514167 /* Flugzeug.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA74955D2C4E747200514167 /* Flugzeug.swift */; };
 		FA7495602C4E93EF00514167 /* Passagier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA74955F2C4E93EF00514167 /* Passagier.swift */; };
@@ -29,6 +31,8 @@
 /* Begin PBXFileReference section */
 		CEA7E2892C4E2C9B0079970B /* 02-05 Airport Manager */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "02-05 Airport Manager"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA7E28C2C4E2C9B0079970B /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		FA2507102C526C9800B516D2 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		FA2507122C526E6500B516D2 /* Transportation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transportation.swift; sourceTree = "<group>"; };
 		FA62EBD42C51263E00B19280 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		FA74955D2C4E747200514167 /* Flugzeug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flugzeug.swift; sourceTree = "<group>"; };
 		FA74955F2C4E93EF00514167 /* Passagier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passagier.swift; sourceTree = "<group>"; };
@@ -65,13 +69,23 @@
 		CEA7E28B2C4E2C9B0079970B /* 02-05 Airport Manager */ = {
 			isa = PBXGroup;
 			children = (
+				FA25070F2C526C1A00B516D2 /* Protokolle */,
 				CEA7E28C2C4E2C9B0079970B /* main.swift */,
 				FA62EBD42C51263E00B19280 /* Extensions.swift */,
 				FA74955D2C4E747200514167 /* Flugzeug.swift */,
+				FA2507122C526E6500B516D2 /* Transportation.swift */,
 				FAF2E8E02C4FE09C0058BDB6 /* Flughafen.swift */,
 				FA74955F2C4E93EF00514167 /* Passagier.swift */,
 			);
 			path = "02-05 Airport Manager";
+			sourceTree = "<group>";
+		};
+		FA25070F2C526C1A00B516D2 /* Protokolle */ = {
+			isa = PBXGroup;
+			children = (
+				FA2507102C526C9800B516D2 /* Protocols.swift */,
+			);
+			path = Protokolle;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +149,10 @@
 				FA62EBD52C51263E00B19280 /* Extensions.swift in Sources */,
 				FA74955E2C4E747200514167 /* Flugzeug.swift in Sources */,
 				FA7495602C4E93EF00514167 /* Passagier.swift in Sources */,
+				FA2507112C526C9800B516D2 /* Protocols.swift in Sources */,
 				FAF2E8E12C4FE09C0058BDB6 /* Flughafen.swift in Sources */,
 				CEA7E28D2C4E2C9B0079970B /* main.swift in Sources */,
+				FA2507132C526E6500B516D2 /* Transportation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
