@@ -11,9 +11,9 @@ print("""
 #####  Aufgabe 1.2  ####################################################################\n
 """)
 
-var flugzeugPropeller1 = Propellerflugzeug(rotorBlaetter: 5, modell: "PC-12 NG", flugzeugPassagiere: 4, passengersMax: 10, crewAnzahl: 1)
-var flugzeugJet1 = Jet(mach: 3529, modell: "Lockheed SR-71 Blackbird", flugzeugPassagiere: 1, passengersMax: 2, crewAnzahl: 0)
-var flugzeugPassagierflugzeug1 = Passagierflugzeug(turbinen: 2, modell: "Airbus A320-200", flugzeugPassagiere: 155, passengersMax: 165, crewAnzahl: 10)
+var flugzeugPropeller1 = Propellerflugzeug(rotorBlaetter: 5, modell: "PC-12 NG", flugzeugPassagiere: 4, passengersMax: 10, crewAnzahl: 1, economy: 4, business: 0, firstClass: 0)
+var flugzeugJet1 = Jet(mach: 3529, modell: "Lockheed SR-71 Blackbird", flugzeugPassagiere: 1, passengersMax: 2, crewAnzahl: 0, economy: 2, business: 0, firstClass: 0)
+var flugzeugPassagierflugzeug1 = Passagierflugzeug(turbinen: 2, modell: "Airbus A320-200", flugzeugPassagiere: 155, passengersMax: 165, crewAnzahl: 10, economy: 100, business: 30, firstClass: 25)
 
 // Aufgabe 1.3 ------------------------------------------------------------------------
 
@@ -86,10 +86,10 @@ print("""
 #####  Aufgabe 2.3  ####################################################################\n
 """)
 
-var kunstflugzeugExtra300 = KunstfliegerExtra300(speedMax: 407, speedMin: 118, kW: 224, rotorBlaetter: 4, modell: "Extra 300 SE", flugzeugPassagiere: 2, passengersMax: 2, crewAnzahl: 0)
-var cessna172 = Cessna172(speedMax: 380, speedMin: 125, kW: 260, rotorBlaetter: 2, modell: "Cessna 172 Skyhawk", flugzeugPassagiere: 3, passengersMax: 6, crewAnzahl: 2)
-var senkrechtstarterJak38 = SenkrechtstarterJak38(speedMax: 1150, spannweite: 7000, laenge: 16.37, mach: 0.95, modell: "Jet JAK-38", flugzeugPassagiere: 2, passengersMax: 2, crewAnzahl: 0)
-var passagierflugzeugA320neo = AirbusA320neo(laenge: 37.57, spannweite: 35.8, hoehe: 11.76, turbinen: 2, modell: "A320neo", flugzeugPassagiere: 176, passengersMax: 189, crewAnzahl: 9)
+var kunstflugzeugExtra300 = KunstfliegerExtra300(speedMax: 407, speedMin: 118, kW: 224, rotorBlaetter: 4, modell: "Extra 300 SE", flugzeugPassagiere: 2, passengersMax: 2, crewAnzahl: 0, economy: 2, business: 0, firstClass: 0)
+var cessna172 = Cessna172(speedMax: 380, speedMin: 125, kW: 260, rotorBlaetter: 2, modell: "Cessna 172 Skyhawk", flugzeugPassagiere: 3, passengersMax: 6, crewAnzahl: 2, economy: 3, business: 0, firstClass: 0)
+var senkrechtstarterJak38 = SenkrechtstarterJak38(speedMax: 1150, spannweite: 7000, laenge: 16.37, mach: 0.95, modell: "Jet JAK-38", flugzeugPassagiere: 2, passengersMax: 2, crewAnzahl: 0, economy: 2, business: 0, firstClass: 0)
+var passagierflugzeugA320neo = AirbusA320neo(laenge: 37.57, spannweite: 35.8, hoehe: 11.76, turbinen: 2, modell: "A320neo", flugzeugPassagiere: 176, passengersMax: 189, crewAnzahl: 9, economy: 100, business: 50, firstClass: 26)
 
 kunstflugzeugExtra300.beschreibung()
 cessna172.beschreibung()
@@ -165,7 +165,29 @@ cessna172.abflugbereit()
 
 print("""
 
-#####  Aufgabe 3.5  ####################################################################\n
+#####  Aufgabe 3.5  ############## BONUS ##################################################\n
 """)
 
+print("""
 
+Sitzklassen Übersicht von \(passagierflugzeugA320neo.flugzeugModell)
+-----------------------------------------------
+Economy:    \(passagierflugzeugA320neo.sitzklassen.0)
+Business:   \(passagierflugzeugA320neo.sitzklassen.1)
+FirstClass: \(passagierflugzeugA320neo.sitzklassen.2)
+
+""")
+
+print("Anzahl wird in Economy erhöht!")
+passagierflugzeugA320neo.sitzklassen.0 += 10
+
+
+print("""
+
+Sitzklassen Übersicht von \(passagierflugzeugA320neo.flugzeugModell)
+-----------------------------------------------
+Economy:    \(passagierflugzeugA320neo.sitzklassen.0)
+Business:   \(passagierflugzeugA320neo.sitzklassen.1)
+FirstClass: \(passagierflugzeugA320neo.sitzklassen.2)
+
+""")
