@@ -6,6 +6,7 @@
 
 import Foundation
 
+
 // Aufgabe 1.2 --------------------------------------------------------------------------
 print("""
 #####  Aufgabe 1.2  ####################################################################\n
@@ -41,8 +42,8 @@ var flugzeugPassagierflugzeug1 = Passagierflugzeug(
     business: 30,
     firstClass: 25)
 
-// Aufgabe 1.3 ------------------------------------------------------------------------
 
+// Aufgabe 1.3 ---------------------------------------------------------------------------
 var frankfurt: Array<Flugzeug> = [flugzeugPropeller1, flugzeugJet1, flugzeugPassagierflugzeug1]
 
 
@@ -344,8 +345,6 @@ for _ in 1...10 {
 
     
 }
-
-print(anreisende)
 
 // Passagire müssen als Objekt übergeben werden!!-------------------------!!!!!!!!!!!!!
 

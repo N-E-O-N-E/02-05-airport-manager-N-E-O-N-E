@@ -24,6 +24,7 @@ protocol Transportation {
     var passagierName: String { get }
     var ankunftsZeit: String { get }
     func anreise()
+   
+    
 }
-
 
