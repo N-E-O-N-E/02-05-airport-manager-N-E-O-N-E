@@ -210,10 +210,12 @@ final class Cessna172: Propellerflugzeug {
     let speedMin: UInt
     let kW: UInt
     
+    
     init(speedMax: UInt, speedMin: UInt, kW: UInt, rotorBlaetter: UInt, modell: String, flugzeugPassagiere: UInt, passengersMax: UInt, crewAnzahl: UInt, economy: UInt, business: UInt, firstClass: UInt) {
         self.speedMax = speedMax
         self.speedMin = speedMin
         self.kW = kW
+        
         super.init(rotorBlaetter: rotorBlaetter, modell: modell, flugzeugPassagiere: flugzeugPassagiere, passengersMax: passengersMax, crewAnzahl: crewAnzahl, economy: economy, business: business, firstClass: firstClass)
     }
     
@@ -287,3 +289,58 @@ final class AirbusA320neo: Passagierflugzeug {
     }
     
 }
+
+final class AirbusA320_200: Passagierflugzeug {
+    
+    let laenge: Double
+    let spannweite: Double
+    let hoehe: Double
+ 
+    
+    init(laenge: Double, spannweite: Double, hoehe: Double, turbinen: UInt, modell: String, flugzeugPassagiere: UInt, passengersMax: UInt, crewAnzahl: UInt, economy: UInt, business: UInt, firstClass: UInt) {
+        self.laenge = laenge
+        self.spannweite = spannweite
+        self.hoehe = hoehe
+        super.init(turbinen: turbinen, modell: modell, flugzeugPassagiere: flugzeugPassagiere, passengersMax: passengersMax, crewAnzahl: crewAnzahl, economy: economy, business: business, firstClass: firstClass)
+    }
+    
+    override func beschreibung() {
+        super.beschreibung()
+        
+        print("""
+            🟦 Länge                  = \(laenge)
+            🟦 Spannweite             = \(spannweite)
+            🟦 Höhe                   = \(hoehe)
+
+        """)
+    }
+    
+}
+
+final class Boeing747: Passagierflugzeug {
+    
+    let laenge: Double
+    let spannweite: Double
+    let hoehe: Double
+ 
+    
+    init(laenge: Double, spannweite: Double, hoehe: Double, turbinen: UInt, modell: String, flugzeugPassagiere: UInt, passengersMax: UInt, crewAnzahl: UInt, economy: UInt, business: UInt, firstClass: UInt) {
+        self.laenge = laenge
+        self.spannweite = spannweite
+        self.hoehe = hoehe
+        super.init(turbinen: turbinen, modell: modell, flugzeugPassagiere: flugzeugPassagiere, passengersMax: passengersMax, crewAnzahl: crewAnzahl, economy: economy, business: business, firstClass: firstClass)
+    }
+    
+    override func beschreibung() {
+        super.beschreibung()
+        
+        print("""
+            🟦 Länge                  = \(laenge)
+            🟦 Spannweite             = \(spannweite)
+            🟦 Höhe                   = \(hoehe)
+
+        """)
+    }
+    
+}
+

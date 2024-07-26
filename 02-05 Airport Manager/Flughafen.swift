@@ -26,9 +26,10 @@ class Flughafen {
     func flughafenBeschreibung() {
        
         print("Flughafenname: \(flughafenName)\n")
+        print("Kontrollturm meldet Flieger am Boden:\n")
         
         for elemente in flugzeuge {
-            print("Auf Rollfeld: \(elemente.flugzeugModell)\n")
+            print("\t\(elemente.flugzeugModell)")
         }
     }
     
@@ -57,12 +58,12 @@ class InternationalerFlughafen: Flughafen {
     }
     
     func internationalerFlughafenBeschreibung() {
-        print("---------------------------------")
+       
         super.flughafenBeschreibung()
-        print("Int. Länderziele: ")
+        print("\nLänderziele des Flughafens: \n")
         
         for elemente in laenderZiele {
-            print("-\(elemente)")
+            print("\t-\(elemente)")
         }
     }
     
@@ -136,4 +137,5 @@ class PrivatFlughafen: InlandsFlughafen {
     }
     
 } // endOfFunc
+
 

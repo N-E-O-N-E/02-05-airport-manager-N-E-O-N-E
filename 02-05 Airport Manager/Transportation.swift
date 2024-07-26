@@ -18,7 +18,7 @@ struct Taxi: Transportation {
     func anreise() {
         
         print("""
-                Der Passagier \(passagierName) kommt um \(ankunftsZeit) mit dem Taxi 🚕 Nr. \(taxiname) an.
+                \t\(passagierName), kommt um \(ankunftsZeit) mit dem Taxi 🚕 Nr. \(taxiname) an.
                 """)
     }
 }
@@ -34,7 +34,7 @@ struct Zug: Transportation {
     func anreise() {
         
         print("""
-              Der Passagier \(passagierName) kommt um \(ankunftsZeit) mit dem Zug 🚃 Nr. \(zugTyp) an.
+              \t\(passagierName), kommt um \(ankunftsZeit) mit dem Zug 🚃 Nr. \(zugTyp) an.
               """)
     }
 }
@@ -49,7 +49,7 @@ struct Uber: Transportation {
     func anreise() {
         
         print("""
-                Der Passagier \(passagierName) kommt um \(ankunftsZeit) mit UBER-Service 🚙 an.
+                \t\(passagierName), kommt um \(ankunftsZeit) mit UBER-Service 🚙 an.
                 """)
     }
 }

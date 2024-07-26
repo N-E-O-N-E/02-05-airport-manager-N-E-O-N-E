@@ -102,7 +102,7 @@ print("""
 #####  Aufgabe 1.5  ####################################################################\n
 """)
 
-var passagier1 = Passagier(passagiername: "Max", flugzeug: flugzeugPropeller1)
+var passagier1 = Passagier(ticketNr: 001, passagiername: "Max", flugzeug: flugzeugPropeller1)
 passagier1.printBoardingpass() // Print ohne Gate "-"
 
 flugzeugPropeller1.flugzeugGate = frankfurtGates[2]
@@ -117,7 +117,7 @@ var kunstflugzeugExtra300 = KunstfliegerExtra300(
     speedMax: 407,
     speedMin: 118, kW: 224,
     rotorBlaetter: 4,
-    modell: "Extra 300 SE",
+    modell: "Kunstflieger Extra 300 SE",
     flugzeugPassagiere: 2,
     passengersMax: 2,
     crewAnzahl: 0,
@@ -157,7 +157,7 @@ var passagierflugzeugA320neo = AirbusA320neo(
     spannweite: 35.8,
     hoehe: 11.76,
     turbinen: 2,
-    modell: "A320neo",
+    modell: "Airbus A320neo",
     flugzeugPassagiere: 176,
     passengersMax: 189,
     crewAnzahl: 9,
@@ -176,18 +176,21 @@ print("""
 #####  Aufgabe 2.4  ####################################################################\n
 """)
 
-var frankfurtAirport = InternationalerFlughafen(laenderZiele: ["Toronto", "Dubai"], 
-                                                flughafenName: "Frankfurt EDDF",
-                                                flugzeuge: [senkrechtstarterJak38, passagierflugzeugA320neo])
+var frankfurtAirport = InternationalerFlughafen(
+    laenderZiele: ["Toronto", "Dubai"],
+    flughafenName: "Frankfurt EDDF",
+    flugzeuge: [senkrechtstarterJak38, passagierflugzeugA320neo])
 
-var pirmasensAirport = InlandsFlughafen(staedteZiele: ["Dortmund", "Saarbrücken", "Ramstein"], 
-                                        flughafenName: "Pirmasens EDRP",
-                                        flugzeuge: [kunstflugzeugExtra300])
+var pirmasensAirport = InlandsFlughafen(
+    staedteZiele: ["Dortmund", "Saarbrücken", "Ramstein"],
+    flughafenName: "Pirmasens EDRP",
+    flugzeuge: [kunstflugzeugExtra300])
 
-var privateField = PrivatFlughafen(verein: ["Verein 1", "Verein 2"], 
-                                   staedteZiele: ["Saarbrücken","Zweibrücken", "Ramstein"],
-                                   flughafenName: "PilotField",
-                                   flugzeuge: [kunstflugzeugExtra300, kunstflugzeugExtra300])
+var privateField = PrivatFlughafen(
+    verein: ["Verein 1", "Verein 2"],
+    staedteZiele: ["Saarbrücken","Zweibrücken", "Ramstein"],
+    flughafenName: "PilotField",
+    flugzeuge: [kunstflugzeugExtra300, kunstflugzeugExtra300])
 
 frankfurtAirport.internationalerFlughafenBeschreibung()
 pirmasensAirport.inlandsFlughafenBeschreibung()
@@ -315,37 +318,172 @@ print("""
 
 
 
-################################################################
-    Aufgabe 4.3 - Weiterführend "Simulation"
-################################################################
+
+
+
+
+
+
+
+
+
+
+
+
+     █████  ██ ██████  ██████   ██████  ██████  ████████
+    ██   ██ ██ ██   ██ ██   ██ ██    ██ ██   ██    ██
+    ███████ ██ ██████  ██████  ██    ██ ██████     ██
+    ██   ██ ██ ██   ██ ██      ██    ██ ██   ██    ██
+    ██   ██ ██ ██   ██ ██       ██████  ██   ██    ██
+
+    ####################################################
+          ✈️ ✈️  Aufgabe 4.3 - SIMULATION  ✈️ ✈️
+    ####################################################
+
+""")
+
+var cessna172_skyhawk = Cessna172(
+    speedMax: 380,
+    speedMin: 125,
+    kW: 260,
+    rotorBlaetter: 2,
+    modell: "Cessna 172 Skyhawk",
+    flugzeugPassagiere: 3,
+    passengersMax: 6,
+    crewAnzahl: 2,
+    economy: 3,
+    business: 0,
+    firstClass: 0)
+
+var A320_neo = AirbusA320neo(
+    laenge: 37.57,
+    spannweite: 35.8,
+    hoehe: 11.76,
+    turbinen: 2,
+    modell: "Airbus A320neo",
+    flugzeugPassagiere: 176,
+    passengersMax: 189,
+    crewAnzahl: 9,
+    economy: 100,
+    business: 50,
+    firstClass: 26)
+
+var A320_200 = AirbusA320_200(
+    laenge: 37.57,
+    spannweite: 35.8,
+    hoehe: 11.76,
+    turbinen: 2,
+    modell: "Airbus A320-200",
+    flugzeugPassagiere: 176,
+    passengersMax: 190,
+    crewAnzahl: 10,
+    economy: 100,
+    business: 50,
+    firstClass: 26)
+
+var B747_400 = Boeing747(
+    laenge: 70.60,
+    spannweite: 64.40,
+    hoehe: 19.41,
+    turbinen: 4,
+    modell: "Boeing 747-400",
+    flugzeugPassagiere: 490,
+    passengersMax: 524,
+    crewAnzahl: 10,
+    economy: 320,
+    business: 130,
+    firstClass: 40)
+
+var frankfurtAirport_sim = InternationalerFlughafen(
+    laenderZiele: ["Toronto", "Dubai", "NewYork", "Dublin", "London"],
+    flughafenName: "Frankfurt Airport Code: EDDF",
+    flugzeuge: [cessna172_skyhawk, A320_neo, A320_200, B747_400])
+
+
+//Thread.sleep(forTimeInterval: 4)
+frankfurtAirport_sim.internationalerFlughafenBeschreibung()
+//Thread.sleep(forTimeInterval: 4)
+print("""
+
+#############################################################
+    10 Passagiere Reisen am >>> Frankfurt Airport <<< an!
+#############################################################
 
 """)
 
 // 10 Passagiere kommen an--------------------------------------
-var namen: [String] = ["Julia V.", "Max B.", "Jürgen I.", "Harald L.", "Sven B.", "Oliver P.", "Ruth M.", "Herbert G.", "Jens H.", "Linda S.", "Patrick T.", "Pascal M.", "Matthias O.", "Uwe. D.", "Tobias S."]
+var namen: [String] = ["Julia Volz", "Max Becker", "Jürgen Frier", "Harald Lösel", "Sven Bunk", "Oliver Palser", "Ruth Marsen", "Herbert Gebert", "Jens Hoffmann", "Linda Schönenberger", "Patrick Taub", "Pascal Meinser", "Matthias Offenbach", "Uwe Donnerberg", "Tobias Wesel"]
 var zeiten: [String] = ["8:00", "8:15", "8:30", "9:00", "9:15", "9:30", "10:00", "10:15", "10:30", "10:45"]
 var idChar: [String] = ["T-", "RE-", "U-", "IC-", "EX-", "XP-", "PA-", "RT-", "LA-"]
 
 
+// Der Einfachheit halber nur mit dem Taxi - hätte auch noch Zug oder Uber als verschachteltes Arrayy oder Dict nutzen können, aber die zeit fehlt...
 
 var anreisende: [Taxi] = []
-
-for _ in 1...10 {
+for _ in 1...4 {
     
     let neue: Taxi = Taxi(
         passagierName: String(namen.randomElement()!),
         ankunftsZeit: String(zeiten.randomElement()!),
         taxinummer: Int.random(in: 20...90),
         taxiname: String(idChar.randomElement()!) + String(Int.random(in: 500...9999))
-        )
-
-    Passagieranreise(Transpormittel: neue)
+        
+    )
     
+    Passagieranreise(Transpormittel: neue)
     anreisende.append(neue)
-
+    //Thread.sleep(forTimeInterval: 1)
     
 }
 
-// Passagire müssen als Objekt übergeben werden!!-------------------------!!!!!!!!!!!!!
+eingabePassagierAnkunft()
+
+print("""
+
+#############################################################
+    Passagiere bekommen Ihr Ticket und ihr Flugzeug
+#############################################################
+
+""")
+
+var reisendePassagiere: [Passagier] = []
+
+for all in anreisende {
+    
+    let ticketNrRand = Int.random(in: 99999...999999)
+    
+    reisendePassagiere.append(Passagier(ticketNr: ticketNrRand, passagiername: all.passagierName, flugzeug: frankfurtAirport.flugzeuge[1]))
+    
+}
+
+for reisende in reisendePassagiere {
+    print("Ticket für:  \(reisende.passagiername) ausgestellt! ")
+    print("\tTicket-Nr: \(reisende.ticketNr)")
+    print("\tFlugzeug:  \(reisende.flugzeug?.flugzeugModell ?? "offen")")
+    
+}
+
+
+
+
+
+print("""
+
+#############################################################
+    Passagiere steigen in Flugzeug
+#############################################################
+
+""")
+
+
+
+
+print("""
+
+#############################################################
+    Flugzeug hebt ab
+#############################################################
+
+""")
 
 
