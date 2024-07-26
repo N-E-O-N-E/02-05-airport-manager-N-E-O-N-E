@@ -80,3 +80,30 @@ func eingabePassagierAnkunft() {
     Thread.sleep(forTimeInterval: 1)
     
 }
+
+func ticketAusstellen() {
+    
+    var reisendePassagiere: [Passagier] = []
+
+    for all in anreisende {
+        
+        let ticketNrRand = Int.random(in: 99999...999999)
+        
+        reisendePassagiere.append(Passagier(ticketNr: ticketNrRand, passagiername: all.passagierName, flugzeug: frankfurtAirport.flugzeuge[1]))
+        
+    }
+
+    for reisende in reisendePassagiere {
+        print("Ticket für:  \(reisende.passagiername) ausgestellt! ")
+        print("\tTicket-Nr: \(reisende.ticketNr)")
+        print("\tFlugzeug:  \(reisende.flugzeug?.flugzeugModell ?? "offen")")
+        
+    }
+    
+} ///endOfFunc
+
+
+
+
+
+
