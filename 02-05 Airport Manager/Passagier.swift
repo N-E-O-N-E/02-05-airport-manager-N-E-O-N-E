@@ -24,18 +24,25 @@ struct Passagier {
     func printBoardingpass() {
         
         print("""
+        ########################################################
+        ##                                                    ##
+        ##    ████████ ██  ██████ ██   ██ ███████ ████████    ##
+        ##       ██    ██ ██      ██  ██  ██         ██       ##
+        ##       ██    ██ ██      █████   █████      ██       ##
+        ##       ██    ██ ██      ██  ██  ██         ██       ##
+        ##       ██    ██  ██████ ██   ██ ███████    ██       ##
+        ##                                                    ##
+        ##     ███ █ █ █ █ ███████████████████████████████    ##
+        ##                                                    ##
+        ########################################################
         
-        ████████ ██  ██████ ██   ██ ███████ ████████
-           ██    ██ ██      ██  ██  ██         ██
-           ██    ██ ██      █████   █████      ██
-           ██    ██ ██      ██  ██  ██         ██
-           ██    ██  ██████ ██   ██ ███████    ██
+                Ticket-Nr.  \(ticketNr)
     
-        ███ █ █ █ █ ███████████████████████████████
-    
-            Fluggast:   \(passagiername)
-            Modell:     \(flugzeug!.flugzeugModell)
-            Gate:       \(flugzeug!.flugzeugGate ?? "waiting...")
+                Fluggast:   \(passagiername)
+                Modell:     \(flugzeug!.flugzeugModell)
+                Gate:       \(flugzeug!.flugzeugGate ?? "waiting...")
+        
+        ########################################################
     
     """)
         
@@ -77,13 +84,15 @@ func eingabePassagierAnkunft() {
     
     anreisende.append(Taxi(passagierName: inputName, ankunftsZeit: inputAnkunftszeit, taxinummer: Int.random(in: 20...90), taxiname: String(idChar.randomElement()!) + String(Int.random(in: 500...9999))))
     
-    Thread.sleep(forTimeInterval: 1)
+    Thread.sleep(forTimeInterval: 0.5)
     
 }
 
+var reisendePassagiere: [Passagier] = []
+
 func ticketAusstellen() {
     
-    var reisendePassagiere: [Passagier] = []
+    //var reisendePassagiere: [Passagier] = []
 
     for all in anreisende {
         
@@ -93,16 +102,25 @@ func ticketAusstellen() {
         
     }
 
-    for reisende in reisendePassagiere {
-        print("Ticket für:  \(reisende.passagiername) ausgestellt! ")
+    for (index,reisende) in reisendePassagiere.enumerated() {
+        print("\(index + 1). Ticket für: \(reisende.passagiername) ausgestellt! ")
         print("\tTicket-Nr: \(reisende.ticketNr)")
-        print("\tFlugzeug:  \(reisende.flugzeug?.flugzeugModell ?? "offen")")
+        print("\tFlugzeug:  \(reisende.flugzeug?.flugzeugModell ?? "offen")\n")
+        
+        reisende.printBoardingpass()
+        Thread.sleep(forTimeInterval: Double.random(in: 0.3...1.0))
         
     }
     
 } ///endOfFunc
 
 
+func passagiereInFlugzeug() {
+    
+    
+    
+    
+} // endOfFunc
 
 
 

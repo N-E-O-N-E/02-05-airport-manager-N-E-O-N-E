@@ -45,8 +45,7 @@ var flugzeugPassagierflugzeug1 = Passagierflugzeug(
 
 // Aufgabe 1.3 ---------------------------------------------------------------------------
 var frankfurt: Array<Flugzeug> = [flugzeugPropeller1, flugzeugJet1, flugzeugPassagierflugzeug1]
-
-
+// Ausgabe der Flugzeuge
 for flugzeuge in frankfurt {
     flugzeuge.beschreibung()
 }
@@ -307,7 +306,7 @@ Passagieranreise(Transpormittel: zug2)
 
 
 print("""
-
+    ----------------------------------------------------------------------------------
 
 
 
@@ -420,7 +419,7 @@ var idChar: [String] = ["T-", "RE-", "U-", "IC-", "EX-", "XP-", "PA-", "RT-", "L
 // Der Einfachheit halber nur mit dem Taxi - hätte auch noch Zug oder Uber als verschachteltes Arrayy oder Dict nutzen können, aber die zeit fehlt...
 
 var anreisende: [Taxi] = []
-for _ in 1...4 {
+for _ in 1...9 {
     
     let neue: Taxi = Taxi(
         passagierName: String(namen.randomElement()!),
@@ -432,8 +431,8 @@ for _ in 1...4 {
     
     Passagieranreise(Transpormittel: neue)
     anreisende.append(neue)
-    //Thread.sleep(forTimeInterval: 1)
     
+    Thread.sleep(forTimeInterval: Double.random(in: 0.3...1.0))
 }
 
 eingabePassagierAnkunft()
@@ -447,17 +446,17 @@ print("""
 """)
 
 ticketAusstellen()
-// Zuweisung zum Flugzeug über Auswahl in Arbeit
+
 
 print("""
 
 #############################################################
-    Passagiere steigen in Flugzeug
+    Passagiere steigen ins Flugzeug
 #############################################################
 
 """)
 
-
+passagiereInFlugzeug()
 
 
 print("""

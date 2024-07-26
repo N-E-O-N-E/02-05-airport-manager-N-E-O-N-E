@@ -87,6 +87,9 @@ class Flugzeug: StartenUndLanden {
                 }
             }
     
+    
+    
+    
     init(flugzeugModell: String, flugzeugPassagiere: UInt, passengersMax: UInt, crewAnzahl: UInt, economy: UInt, business: UInt, firstClass: UInt ) {
         self.flugzeugModell = flugzeugModell
         self.flugzeugPassagiere = flugzeugPassagiere

@@ -17,11 +17,15 @@ class Flughafen {
     
     let flughafenName: String
     var flugzeuge: [Flugzeug]
+    var gate: [String]
     
-    init(flughafenName: String, flugzeuge: [Flugzeug]) {
+    init(flughafenName: String, flugzeuge: [Flugzeug], gate: [String]) {
         self.flughafenName = flughafenName
         self.flugzeuge = flugzeuge
+        self.gate = gate
     }
+    
+    
     
     func flughafenBeschreibung() {
        
@@ -54,7 +58,7 @@ class InternationalerFlughafen: Flughafen {
     
     init(laenderZiele: [String], flughafenName: String, flugzeuge: [Flugzeug] ) {
         self.laenderZiele = laenderZiele
-        super.init(flughafenName: flughafenName, flugzeuge: flugzeuge)
+        super.init(flughafenName: flughafenName, flugzeuge: flugzeuge, gate: [])
     }
     
     func internationalerFlughafenBeschreibung() {
@@ -88,7 +92,7 @@ class InlandsFlughafen: Flughafen {
     
     init(staedteZiele: [String], flughafenName: String, flugzeuge: [Flugzeug] ) {
         self.staedteZiele = staedteZiele
-        super.init(flughafenName: flughafenName, flugzeuge: flugzeuge)
+        super.init(flughafenName: flughafenName, flugzeuge: flugzeuge, gate: [])
     }
     
     func inlandsFlughafenBeschreibung() {
